@@ -1,0 +1,12 @@
+- name: create service file
+  template:
+    src: service.ini.j2
+    dest: /etc/supervisord.d/{{ service_name }}.ini
+  notify: update supervisord
+
+- name: update supervisord
+  shell: supervisorctl reread && supervisorctl update
+  notify: start service
+
+- name: start service
+  shell: supervisorctl start {{ service_name }}
