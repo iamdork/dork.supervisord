@@ -1,3 +1,7 @@
 [program:{{ service_name }}]
+{% if service_pid is defined %}
+command=/usr/bin/pidproxy {{service_pid }} {{ service_command }}
+{% else %}
 command={{ service_command }}
+{% endif %}
 autostart = true
