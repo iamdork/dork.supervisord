@@ -1,4 +1,7 @@
 [program:{{ service_name }}]
+{% if service_directory is defined %}
+directory={{ service_directory %}
+{% endif $}
 {% if service_pid is defined %}
 command=/usr/bin/pidproxy {{service_pid }} {{ service_command }}
 {% else %}

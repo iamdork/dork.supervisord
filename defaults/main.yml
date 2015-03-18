@@ -1,3 +1,4 @@
 service_name: undefined
-# service_pid: undefined
 service_command: echo "undefined"
+# service_pid: /path/to/pid.file
+# service_directory: /path/to/working/directory
